@@ -46,7 +46,7 @@ const LoginPage = () => {
             </div>
 
             {/* Overlapping Issues Fixed Card */}
-            <div className="absolute -bottom-20 right-0 w-1/2 bg-white rounded-2xl p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+            <div className=" bottom-40 right-0 w-2/8 bg-white rounded-2xl p-6 -mt-10 ml-40  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
               <div className="flex items-center justify-between">
                 <div className="flex flex-col">
                   <img
@@ -67,13 +67,14 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-8">
+        <div className="absolute bottom-0 left-0 flex justify-start pb-8">
           <img
-            src="src\assets\Subtract.png"
+            src="src/assets/Subtract.png"
             alt="CodeAnt Logo"
-            className="w-12 h-12"
+            className="w-24 h-24"
             style={{
-              height: "60%",
+              height: "50%",
+              width: "50%",
             }}
           />
         </div>
