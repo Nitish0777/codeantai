@@ -95,10 +95,10 @@ const LoginPage = () => {
             <h1 className="text-2xl font-bold mb-6">Welcome to CodeAnt AI</h1>
 
             <div className="flex gap-4 mb-4">
-              <button className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors">
+              <button className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-blue-600 transition-colors">
                 SAAS
               </button>
-              <button className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-200 transition-colors">
+              <button className="flex-1 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-gray-200 transition-colors">
                 Self Hosted
               </button>
             </div>
