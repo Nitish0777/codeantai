@@ -4,7 +4,8 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen bg-white flex relative">
       {/* Left Section with Background Logo - Hidden on mobile */}
-      <div className="w-1/2 relative bg-white p-8 flex flex-col justify-center">
+      <div className="hidden w-full md:w-1/2 md:flex relative bg-white p-8 items-center justify-center"
+      >
         {/* Large Logo in bottom left */}
         <img
           src="src/assets/logo-large.png"
