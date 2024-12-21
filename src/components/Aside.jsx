@@ -109,19 +109,9 @@ const Layout = () => {
               />
             </svg>
           </button>
-
-          {/* Logo - Hidden on mobile */}
-          <div className="hidden lg:flex items-center mb-8">
-            <img
-              src="src\assets\logo.png"
-              alt="CodeAnt AI Logo"
-              className="h-8 w-8 mr-3"
-            />
-            <span className="text-xl font-semibold">CodeAnt AI</span>
-          </div>
-
+          
           {/* User Dropdown */}
-          <div className="mb-6">
+          <div className="mb-2">
             <div className="flex items-center mb-3">
               <img
                 src="src\assets\logo.png"
