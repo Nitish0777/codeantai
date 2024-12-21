@@ -1,82 +1,184 @@
-import React from "react";
+import React, { useState } from 'react';
+import { 
+  Menu,
+  Search,
+  RefreshCw,
+  Plus,
+  Home,
+  FileCode,
+  Cloud,
+  HelpCircle,
+  Settings,
+  Phone,
+  LogOut 
+} from 'lucide-react';
 
-const Aside = () => {
+const Layout = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  
+  const repositories = [
+    { name: 'design-system', language: 'React', size: '7320 KB', updated: '1 day ago', isPublic: true },
+    { name: 'codeant-ci-app', language: 'Javascript', size: '5871 KB', updated: '2 days ago', isPrivate: true },
+    { name: 'analytics-dashboard', language: 'Python', size: '4521 KB', updated: '5 days ago', isPrivate: true },
+  ];
+
   return (
-    <>
-      
-<aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-      <a href="https://flowbite.com/" class="flex items-center ps-2.5 mb-5">
-         <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 me-3 sm:h-7" alt="Flowbite Logo" />
-         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-      </a>
-      <ul class="space-y-2 font-medium">
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                  <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                  <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-               </svg>
-               <span class="ms-3">Dashboard</span>
+    <div className="min-h-screen bg-gray-50">
+      {/* Mobile Header */}
+      <header className="lg:hidden flex items-center justify-between p-4 bg-white border-b fixed top-0 left-0 right-0 z-20">
+        <button onClick={() => setSidebarOpen(true)} className="p-2">
+          <Menu className="w-6 h-6" />
+        </button>
+        <div className="flex items-center">
+          <img src="src\assets\logo.png" alt="CodeAnt AI Logo" className="h-8 w-8 mr-2" />
+          <span className="text-xl font-semibold">CodeAnt AI</span>
+        </div>
+        <div className="w-6" />
+      </header>
+
+      {/* Sidebar - Modified for 40% height and animation */}
+      <aside 
+        className={`fixed lg:inset-y-0 lg:left-0 z-30 w-full lg:w-64 bg-white border-b lg:border-r lg:border-b-0 transition-all duration-300 ease-in-out
+          ${isSidebarOpen ? 'top-0' : '-top-[40vh]'} 
+          lg:transform-none lg:top-0 
+          h-[40vh] lg:h-screen
+          shadow-lg lg:shadow-none
+          overflow-y-auto
+        `}
+      >
+        <div className="flex flex-col h-full px-4 py-6 relative">
+          {/* Close button - Only on mobile */}
+          <button 
+            className="lg:hidden absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700"
+            onClick={() => setSidebarOpen(false)}
+          >
+            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          {/* Logo - Hidden on mobile */}
+          <div className="hidden lg:flex items-center mb-8">
+            <img src="/api/placeholder/32/32" alt="CodeAnt AI Logo" className="h-8 w-8 mr-3" />
+            <span className="text-xl font-semibold">CodeAnt AI</span>
+          </div>
+
+          {/* User Dropdown */}
+          <div className="mb-6">
+            <button className="w-full px-3 py-2 text-left text-gray-700 bg-gray-100 rounded-lg flex items-center justify-between">
+              <span className="truncate">UtkarshDhairyaPa...</span>
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation - Condensed for mobile */}
+          <nav className="flex-1 space-y-1 overflow-y-auto">
+            <a href="#" className="flex items-center px-3 py-2 text-blue-600 bg-blue-50 rounded-lg">
+              <Home className="w-5 h-5 mr-3" />
+              <span>Repositories</span>
             </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
-                  <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z"/>
-               </svg>
-               <span class="flex-1 ms-3 whitespace-nowrap">Kanban</span>
-               <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+            <a href="#" className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <FileCode className="w-5 h-5 mr-3" />
+              <span>AI Code Review</span>
             </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
-               </svg>
-               <span class="flex-1 ms-3 whitespace-nowrap">Inbox</span>
-               <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+            <a href="#" className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <Cloud className="w-5 h-5 mr-3" />
+              <span>Cloud Security</span>
             </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                  <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
-               </svg>
-               <span class="flex-1 ms-3 whitespace-nowrap">Users</span>
+            <a href="#" className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <HelpCircle className="w-5 h-5 mr-3" />
+              <span>How to Use</span>
             </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                  <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z"/>
-               </svg>
-               <span class="flex-1 ms-3 whitespace-nowrap">Products</span>
+            <a href="#" className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <Settings className="w-5 h-5 mr-3" />
+              <span>Settings</span>
             </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"/>
-               </svg>
-               <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+          </nav>
+
+          {/* Bottom Menu - Only visible on desktop */}
+          <div className="hidden lg:block pt-6 space-y-1 border-t">
+            <a href="#" className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <Phone className="w-5 h-5 mr-3" />
+              <span>Support</span>
             </a>
-         </li>
-         <li>
-            <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-               <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"/>
-                  <path d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z"/>
-                  <path d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z"/>
-               </svg>
-               <span class="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
+            <a href="#" className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">
+              <LogOut className="w-5 h-5 mr-3" />
+              <span>Logout</span>
             </a>
-         </li>
-      </ul>
-   </div>
-</aside>
-    </>
+          </div>
+        </div>
+      </aside>
+
+      {/* Main Content */}
+      <main className="lg:ml-64 min-h-screen pt-16 lg:pt-0">
+        <div className="p-6">
+          {/* Repository Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+            <div>
+              <h1 className="text-2xl font-semibold mb-1">Repositories</h1>
+              <p className="text-gray-600">33 total repositories</p>
+            </div>
+            <div className="flex gap-3 mt-4 sm:mt-0">
+              <button className="flex items-center px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
+                <RefreshCw className="w-4 h-4 mr-2" />
+                Refresh All
+              </button>
+              <button className="flex items-center px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                <Plus className="w-4 h-4 mr-2" />
+                Add Repository
+              </button>
+            </div>
+          </div>
+
+          {/* Search Bar */}
+          <div className="relative mb-6">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Search Repositories"
+              className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          {/* Repository List */}
+          <div className="space-y-4">
+            {repositories.map((repo) => (
+              <div key={repo.name} className="p-4 bg-white rounded-lg border hover:shadow-sm">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h3 className="text-lg font-medium">{repo.name}</h3>
+                      <span className={`px-2 py-1 text-xs rounded-full ${repo.isPublic ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-800'}`}>
+                        {repo.isPublic ? 'Public' : 'Private'}
+                      </span>
+                    </div>
+                    <div className="mt-2 flex items-center gap-4 text-sm text-gray-600">
+                      <span className="flex items-center gap-1">
+                        <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                        {repo.language}
+                      </span>
+                      <span>{repo.size}</span>
+                      <span>Updated {repo.updated}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      {/* Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 lg:hidden z-20"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+    </div>
   );
 };
 
-export default Aside;
+export default Layout;
