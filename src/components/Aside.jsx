@@ -193,7 +193,7 @@ const Layout = () => {
           {/* Repository List */}
           <div className="border border-grey rounded-lg ">
             {/* Repository Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between  m-3">
               <div>
                 <h1 className="text-2xl font-semibold mb-1">Repositories</h1>
                 <p className="text-gray-600">33 total repositories</p>
@@ -210,7 +210,7 @@ const Layout = () => {
               </div>
             </div>
             {/* Search Bar */}
-            <div className="relative mb-6 ">
+            <div className="relative mb-6 ml-3">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
               <input
                 type="text"
