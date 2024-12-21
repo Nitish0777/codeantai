@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import './App.css'
 import Side from './components/sidebar/Side'
-import LoginPage from './components/SignUp'
+import SignUpPage from './components/SignUp'
+import LoginPage from './components/SignIn'
 
 function App() {
 
   return (
     <>
       {/* <Side /> */}
+      {/* <LoginPage /> */}
       <LoginPage />
     </>
   )

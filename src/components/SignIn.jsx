@@ -1,6 +1,6 @@
 import React from "react";
 
-const SignUpPage = () => {
+const LoginPage = () => {
   return (
     <div className="min-h-screen bg-white flex relative">
       <div className="hidden w-full md:w-1/2 md:flex relative bg-white p-8 items-center justify-center"
@@ -105,32 +105,11 @@ const SignUpPage = () => {
           </div>
 
           <div className="space-y-4">
-            <button className="w-full flex items-center justify-center gap-2 border rounded-md py-2 px-4 hover:bg-gray-50 transition-colors bg-white">
-              <img
-                src="src/assets/github.png"
-                alt="GitHub"
-                className="w-5 h-5"
-              />
-              Sign in with Github
-            </button>
+            
 
-            <button className="w-full flex items-center justify-center gap-2 border rounded-md py-2 px-4 hover:bg-gray-50 transition-colors bg-white">
-              <img
-                src="src/assets/bigbuk.png"
-                alt="Bitbucket"
-                className="w-5 h-5"
-              />
-              Sign in with Bitbucket
-            </button>
+          
 
-            <button className="w-full flex items-center justify-center gap-2 border rounded-md py-2 px-4 hover:bg-gray-50 transition-colors bg-white">
-              <img
-                src="src/assets/devop.png"
-                alt="Azure DevOps"
-                className="w-5 h-5"
-              />
-              Sign in with Azure Devops
-            </button>
+           
 
             <button className="w-full flex items-center justify-center gap-2 border rounded-md py-2 px-4 hover:bg-gray-50 transition-colors bg-white">
               <img
@@ -139,6 +118,14 @@ const SignUpPage = () => {
                 className="w-5 h-5"
               />
               Sign in with GitLab
+            </button>
+            <button className="w-full flex items-center justify-center gap-2 border rounded-md py-2 px-4 hover:bg-gray-50 transition-colors bg-white">
+              <img
+                src="src\assets\key.png"
+                alt="Azure DevOps"
+                className="w-5 h-5"
+              />
+              Sign in with SSO
             </button>
           </div>
 
@@ -155,4 +142,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default LoginPage;
