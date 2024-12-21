@@ -65,9 +65,6 @@ const Layout = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Mobile Header */}
       <header className="lg:hidden flex items-center justify-between p-4 bg-white border-b fixed top-0 left-0 right-0 z-20">
-        <button onClick={() => setSidebarOpen(true)} className="p-2">
-          <Menu className="w-6 h-6" />
-        </button>
         <div className="flex items-center">
           <img
             src="src\assets\logo.png"
@@ -77,12 +74,15 @@ const Layout = () => {
           <span className="text-xl font-semibold">CodeAnt AI</span>
         </div>
         <div className="w-6" />
+        <button onClick={() => setSidebarOpen(true)} className="p-2">
+          <Menu className="w-6 h-6" />
+        </button>
       </header>
 
       {/* Sidebar  */}
       <aside
         className={`fixed lg:inset-y-0 lg:left-0 z-30 w-full lg:w-64 bg-white border-b lg:border-r lg:border-b-0 transition-all duration-300 ease-in-out
-          ${isSidebarOpen ? "top-0" : "-top-[40vh]"} 
+          ${isSidebarOpen ? "top-0" : "-top-[50vh]"} 
           lg:transform-none lg:top-0 
           h-[40vh] lg:h-screen
           shadow-lg lg:shadow-none
@@ -92,7 +92,7 @@ const Layout = () => {
         <div className="flex flex-col h-full px-4 py-6 relative">
           {/* Close button - Only on mobile */}
           <button
-            className="lg:hidden absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700"
+            className="lg:hidden absolute top-6 right-4 p-2 text-gray-500 hover:text-gray-700"
             onClick={() => setSidebarOpen(false)}
           >
             <svg
@@ -122,7 +122,15 @@ const Layout = () => {
 
           {/* User Dropdown */}
           <div className="mb-6">
-            <button className="w-full px-3 py-2 text-left text-gray-700 bg-gray-100 rounded-lg flex items-center justify-between">
+            <div className="flex items-center mb-3">
+              <img
+                src="src\assets\logo.png"
+                alt="CodeAnt AI Logo"
+                className="h-8 w-8 mr-2"
+              />
+              <span className="text-xl font-semibold">CodeAnt AI</span>
+            </div>
+            <button className="w-full p-2 text-left text-gray-700 bg-gray-100 rounded-lg flex items-center justify-between">
               <span className="truncate">UtkarshDhairyaPa...</span>
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
